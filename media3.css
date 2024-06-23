@@ -1,0 +1,17 @@
+@media only screen and (max-width: 568px) {
+    footer a {
+        line-height: 2;
+    }
+    .container-modified{
+        border: none !important;
+    }
+    main {
+        margin-top: -60px !important;
+    }
+    .op{
+        margin-top: -95px !important;
+    }
+    .op2{
+        margin-top: -95px !important;
+    }
+}
