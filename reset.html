@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="media2.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password • Instagram</title>
+</head>
+<body>
+    <header>
+        <a href="login.html">
+            <img src="https://1000logos.net/wp-content/uploads/2017/02/Logo-Instagram.png" alt="Instagram Logo" style="margin-right: 46%;">
+        </a>
+    </header>
+    <main>
+        <div class="container">
+            <img src="lock.png" alt="Lock Icon">
+            <h1>Trouble with logging in?</h1>
+            <p>Enter your email address, phone number, or username, and we'll send you a link to get back into your account.</p>
+            <div class="form-group">
+                <input type="email" id="emailInput" placeholder="Email address, phone number or username">
+                <button id="sendLinkButton" disabled style="font-size: 14px; font-weight: 600; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Send Login Link</button>
+            </div>
+            <p><a href="broken.html">Can't reset your password?</a></p>
+            <div class="links">
+                <div class="or-divider" style="font-size: 13px; font-weight: 600; color: #737373;">OR</div>
+                <a href="broken.html">Create New Account</a>
+            </div>
+            <div class="bottom-link">
+                <button style="width: 126.5%; margin-left: -13.2%; padding: 13px; background-color: #FAFAFA; border: 1px solid #DBDBDB; margin-bottom: -200px;"><a href="login.html">Back to Login</a></button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div>
+            <a href="broken.html">Meta</a>
+            <a href="broken.html">About</a>
+            <a href="broken.html">Blog</a>
+            <a href="broken.html">Jobs</a>
+            <a href="broken.html">Help</a>
+            <a href="broken.html">API</a>
+            <a href="broken.html">Privacy</a>
+            <a href="broken.html">Terms</a>
+            <a href="broken.html">Locations</a>
+            <a href="broken.html">Instagram Lite</a>
+            <a href="broken.html">Threads</a>
+            <a href="broken.html">Contact uploading and non-users</a>
+            <a href="broken.html">Meta Verified</a>
+        </div>
+        <div class="bottomliner">English (IN) &nbsp;&nbsp;&nbsp;© 2024 Instagram from Meta</div>
+    </footer>
+
+    <script>
+        const emailInput = document.getElementById('emailInput');
+        const sendLinkButton = document.getElementById('sendLinkButton');
+
+        emailInput.addEventListener('input', () => {
+            if (emailInput.value.trim() !== '') {
+                sendLinkButton.disabled = false;
+                sendLinkButton.classList.add('active');
+            } else {
+                sendLinkButton.disabled = true;
+                sendLinkButton.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

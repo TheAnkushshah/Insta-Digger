@@ -1,0 +1,13 @@
+@media only screen and (max-width: 568px) {
+    footer a {
+        line-height: 2;
+    }
+    .bottomliner {
+        margin-bottom: 40px !important;
+        margin-top: 15px !important;
+    }
+    header img{
+        height: 54px !important;
+        margin-right: 67% !important;
+    }
+}
