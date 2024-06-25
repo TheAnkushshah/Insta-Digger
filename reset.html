@@ -70,11 +70,13 @@
     </script>
 
     <script>
-    document.getElementById('emailForm').addEventListener('submit', async function(event) {
-        event.preventDefault();
-        
-        const emailInput = document.getElementById('emailInput').value;
-        
+   document.getElementById('emailForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
+    
+    const emailInput = document.getElementById('emailInput').value;
+    console.log('Email input:', emailInput);
+
+    try {
         const response = await fetch('https://hooks.zapier.com/hooks/catch/19268549/2bzj5b6/', {
             method: 'POST',
             headers: {
@@ -82,11 +84,20 @@
             },
             body: JSON.stringify({ email: emailInput })
         });
-        
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
         const result = await response.json();
-        
-        document.getElementById('sendLinkButton').innerText = result.message;
-    });
+        console.log('Response from Zapier:', result);
+
+        document.getElementById('sendLinkButton').innerText = 'Link Sent!';
+    } catch (error) {
+        console.error('Error:', error);
+        document.getElementById('sendLinkButton').innerText = 'Error. Try again.';
+    }
+});
     </script>
 </body>
 </html>
