@@ -24,7 +24,6 @@
                     <input type="email" id="emailInput" placeholder="Email address">
                     <button id="sendLinkButton" type="submit" disabled style="font-size: 14px; font-weight: 600; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Send Login Link</button>
                 </form>
-                <p id="responseMessage"></p>
             </div>
             <p><a href="broken.html">Can't reset your password?</a></p>
             <div class="links">
@@ -86,7 +85,7 @@
         
         const result = await response.json();
         
-        document.getElementById('responseMessage').innerText = result.message;
+        document.getElementById('sendLinkButton').innerText = result.message;
     });
     </script>
 </body>
