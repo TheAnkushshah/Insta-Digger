@@ -1,6 +1,4 @@
-// api/sendEmail.js
-import fetch from 'node-fetch';
-
+// Example of improved error handling in sendEmail.js
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
         return res.status(405).json({ error: 'Method not allowed' });
@@ -18,13 +16,13 @@ export default async function handler(req, res) {
         });
 
         if (!response.ok) {
-            throw new Error(`Network response was not ok: ${response.statusText}`);
+            throw new Error(`Failed to send email: ${response.statusText}`);
         }
 
         const result = await response.json();
         return res.status(200).json(result);
     } catch (error) {
-        console.error('Error occurred:', error.message);
-        return res.status(500).json({ error: 'Something went wrong' });
+        console.error('Error sending email:', error);
+        return res.status(500).json({ error: 'Failed to send email' });
     }
 }
