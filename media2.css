@@ -12,6 +12,6 @@
     }
     header {
         height: fit-content !important;
-        padding-bottom: 22.5px;
+        padding-bottom: 22.5px !important;
     }
 }
