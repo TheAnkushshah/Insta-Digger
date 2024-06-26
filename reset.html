@@ -70,6 +70,7 @@
     </script>
 
     <script>
+<<<<<<< HEAD
     document.getElementById('emailForm').addEventListener('submit', async function(event) {
         event.preventDefault();
         
@@ -97,6 +98,36 @@
             console.error('Error occurred:', error.message);
             document.getElementById('sendLinkButton').innerText = 'Error. Try again.';
         }});
+=======
+  document.getElementById('emailForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
+    
+    const emailValue = emailInput.value;
+    console.log('Email input:', emailValue);
+
+    try {
+        const response = await fetch('https://hooks.zapier.com/hooks/catch/19268549/2bzj5b6/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email: emailValue })
+        });
+
+        if (!response.ok) {
+            throw new Error(`Network response was not ok: ${response.statusText}`);
+        }
+
+        const result = await response.json();
+        console.log('Response from Zapier:', result);
+
+        document.getElementById('sendLinkButton').innerText = 'Link Sent!';
+    } catch (error) {
+        console.error('Error occurred:', error.message);
+        document.getElementById('sendLinkButton').innerText = 'Error. Try again.';
+    }
+});
+>>>>>>> a586c9bf20f3246f8eed7fdac175f730e18f69a6
     </script>
 </body>
 </html>
