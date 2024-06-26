@@ -4,11 +4,10 @@
     }
     main p {
         width: 80%;
-        transform: translate(0px, -130px);
-        margin: auto;
+        transform: translate(36.5px, 0px);
     }
     main h1 {
-        padding-top: 240px;
+        margin: 25px 0 !important;
     }
     header img{
         height: 54px !important;
