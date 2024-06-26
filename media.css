@@ -13,6 +13,10 @@
         height: 54px !important;
         margin-bottom: -25.1px !important;
     }
+    header {
+        height: fit-content !important;
+        padding-bottom: 19.5px !important;
+    }
     .auth-buttons{
         margin-left: 27% !important;
     }

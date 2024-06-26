@@ -10,4 +10,8 @@
         height: 54px !important;
         margin-right: 67% !important;
     }
+    header {
+        height: fit-content !important;
+        padding-bottom: 22.5px;
+    }
 }
