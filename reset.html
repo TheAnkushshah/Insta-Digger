@@ -54,18 +54,9 @@
         <div class="bottomliner">English (IN) &nbsp;&nbsp;&nbsp;© 2024 Instagram from Meta</div>
     </footer>
 
-    <!-- Popup message -->
-    <div id="popup" class="popup">
-        <div class="popup-content">
-            <img src="https://cdn-icons-png.freepik.com/512/4192/4192775.png" alt="Success Icon" class="popup-icon">
-            <p>Congrats 🎉 Email Sent</p>
-        </div>
-    </div>
-
     <script>
         const emailInput = document.getElementById('emailInput');
         const sendLinkButton = document.getElementById('sendLinkButton');
-        const popup = document.getElementById('popup');
 
         emailInput.addEventListener('input', () => {
             if (emailInput.value.trim() !== '') {
@@ -76,39 +67,43 @@
                 sendLinkButton.classList.remove('active');
             }
         });
+    </script>
 
-        document.getElementById('emailForm').addEventListener('submit', async function(event) {
-            event.preventDefault();
-
-            const emailValue = emailInput.value;
-            console.log('Email input:', emailValue);
-
-            try {
-                // Simulate sending email (replace with your actual fetch request)
-                await new Promise(resolve => setTimeout(resolve, 1000));
-
-                // Show popup message
-                popup.classList.add('show-popup');
-
-                // Reset the form fields
-                document.getElementById('emailForm').reset();
-                // Disable the send button and remove the active class
-                sendLinkButton.disabled = true;
-                sendLinkButton.classList.remove('active');
-
-                console.log('Email sent successfully!');
-            } catch (error) {
-                console.error('Error occurred:', error.message);
-                // Handle error
+    <script>
+    document.getElementById('emailForm').addEventListener('submit', async function(event) {
+        event.preventDefault();
+        
+        const emailValue = document.getElementById('emailInput').value;
+        console.log('Email input:', emailValue);
+    
+        try {
+            const response = await fetch('/api/sendEmail', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email: emailValue })
+            });
+    
+            if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.statusText}`);
             }
-        });
+    
+            const result = await response.json();
+            console.log('Response from serverless function:', result);
+    
+            document.getElementById('sendLinkButton').innerText = 'Check Your Eamil 🎉';
 
-        // Close popup when clicked outside
-        window.addEventListener('click', function(event) {
-            if (event.target === popup) {
-                popup.classList.remove('show-popup');
-            }
-        });
+            // Reset the form fields
+            document.getElementById('emailForm').reset();
+            // Disable the send button and remove the active class
+            sendLinkButton.disabled = true;
+            sendLinkButton.classList.remove('active');
+        } catch (error) {
+            console.error('Error occurred:', error.message);
+            document.getElementById('sendLinkButton').innerText = 'Try again later.';
+        }
+    });    
     </script>
 </body>
 </html>
