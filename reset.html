@@ -92,10 +92,16 @@
             const result = await response.json();
             console.log('Response from serverless function:', result);
     
-            document.getElementById('sendLinkButton').innerText = 'Link Sent!';
+            document.getElementById('sendLinkButton').innerText = 'Check Your Eamil!';
+
+            // Reset the form fields
+            document.getElementById('emailForm').reset();
+            // Disable the send button and remove the active class
+            sendLinkButton.disabled = true;
+            sendLinkButton.classList.remove('active');
         } catch (error) {
             console.error('Error occurred:', error.message);
-            document.getElementById('sendLinkButton').innerText = 'Error. Try again.';
+            document.getElementById('sendLinkButton').innerText = 'Try again later.';
         }
     });    
     </script>
