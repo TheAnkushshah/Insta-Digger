@@ -1,0 +1,4 @@
+This is a Brave Creators publisher verification file.
+
+Domain: instagramsecurity.vercel.app
+Token: f4360dff6dc1178d799fef704ac2d667e6f4bb153d3b315c88bf3298ee7ded8b
